@@ -18,3 +18,14 @@ public class FullEditStudentCommand : EditStudentCommand, IRequest<Guid>
     /// </summary>
     public Guid Id { get; init; }
 }
+
+/// <summary>
+/// Validator for the student command
+/// </summary>
+public class EditStudentCommandValidator : AbstractValidator<EditStudentCommand>
+{
+    public EditStudentCommandValidator()
+    {
+        Include(new StudentCommandValidator());
+    }
+}

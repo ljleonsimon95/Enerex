@@ -18,3 +18,4 @@ C:\Users\AllTech\RiderProjects\Enerex\Infrastructure\obj\Debug\net8.0\ref\Infras
 C:\Users\AllTech\RiderProjects\Enerex\Infrastructure\bin\Debug\net8.0\Data\Files\students.txt
 C:\Users\AllTech\RiderProjects\Enerex\Infrastructure\bin\Debug\net8.0\Infrastructure.runtimeconfig.json
 C:\Users\AllTech\RiderProjects\Enerex\Infrastructure\obj\Debug\net8.0\Infrastructure.genruntimeconfig.cache
+C:\Users\AllTech\RiderProjects\Enerex\Infrastructure\obj\Debug\net8.0\Infrastructure.sourcelink.json

@@ -56,3 +56,4 @@ C:\Users\AllTech\RiderProjects\Enerex\API\obj\Debug\net8.0\API.pdb
 C:\Users\AllTech\RiderProjects\Enerex\API\obj\Debug\net8.0\API.genruntimeconfig.cache
 C:\Users\AllTech\RiderProjects\Enerex\API\obj\Debug\net8.0\ref\API.dll
 C:\Users\AllTech\RiderProjects\Enerex\API\bin\Debug\net8.0\Data\Files\students.txt
+C:\Users\AllTech\RiderProjects\Enerex\API\obj\Debug\net8.0\API.sourcelink.json

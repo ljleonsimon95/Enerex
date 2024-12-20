@@ -70,6 +70,10 @@ public class StudentsController(IMediator mediator) : ControllerBase
         {
             return BadRequest(new { message = ex.Message });
         }
+        catch (NonExistingStudent ex)
+        {
+            return BadRequest(new { message = ex.Message });
+        }
         catch (Exception ex)
         {
             return StatusCode(500, new { message = "An unexpected error occurred" });

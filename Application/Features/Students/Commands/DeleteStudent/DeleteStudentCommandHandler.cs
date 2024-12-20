@@ -1,3 +1,4 @@
+using Application.Features.Students.Exceptions;
 using Domain.Interfaces;
 using MediatR;
 
@@ -17,7 +18,7 @@ public class DeleteStudentCommandHandler(IStudentRepository studentRepository)
     /// <returns>Id of the deleted student</returns>
     public async Task<Guid> Handle(DeleteStudentCommand request, CancellationToken cancellationToken)
     {
-        var student = await studentRepository.GetByIdAsync(request.Id) ?? throw new Exception("Student not found");
+        var student = await studentRepository.GetByIdAsync(request.Id) ?? throw new NonExistingStudent("Student not found");
         await studentRepository.DeleteAsync(student.Id);
         return student.Id;
     }

@@ -1,4 +1,5 @@
 using Application.Features.Students.Queries.Commons;
+using FluentValidation;
 using MediatR;
 
 namespace Application.Features.Students.Commands.BulkStudentEdit;
@@ -17,4 +18,11 @@ public class BulkEditCommand : IRequest<int>
     /// Gets or sets the query containing the new data for the students
     /// </summary>
     public GetAllStudentsBasicQuery ToEditQuery { get; set; }
+}
+
+public class BulkEditCommandValidator : AbstractValidator<BulkEditCommand>
+{
+    public BulkEditCommandValidator()
+    {
+    }
 }

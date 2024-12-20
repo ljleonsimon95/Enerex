@@ -10,3 +10,14 @@ namespace Application.Features.Students.Commands.AddStudent;
 public class AddStudentCommand : StudentCommand, IRequest<Guid>
 {
 }
+
+/// <summary>
+/// Validator for the student command
+/// </summary>
+public class AddStudentCommandValidator : AbstractValidator<AddStudentCommand>
+{
+    public AddStudentCommandValidator()
+    {
+        Include(new StudentCommandValidator());
+    }
+}

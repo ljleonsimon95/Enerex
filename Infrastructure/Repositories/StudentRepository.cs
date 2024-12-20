@@ -59,7 +59,7 @@ public class StudentRepository(ApplicationDbContext context) : IStudentRepositor
     /// <param name="student">Student to update</param>
     public async Task UpdateAsync(Student student)
     {
-        var existingStudent = context.Students.FirstOrDefault(s => s.Id == student.Id);
+        var existingStudent = context.Students.FirstOrDefault(s => s.Id == student.Id) ?? throw new NonExistingStudent("No existing student with this Id");
 
         var exists = await context.Students.AnyAsync(s =>
             s.Name == student.Name &&

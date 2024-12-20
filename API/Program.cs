@@ -1,3 +1,4 @@
+using Application.Features.Students.Commands.AddStudent;
 using Application.Features.Students.Commands.Commons;
 using Application.Features.Students.Queries.Commons;
 using Domain.Interfaces;
@@ -23,6 +24,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddFluentValidationAutoValidation();
 builder.Services.AddFluentValidationClientsideAdapters();
 builder.Services.AddValidatorsFromAssemblyContaining<StudentCommandValidator>();
+builder.Services.AddValidatorsFromAssemblyContaining<AddStudentCommandValidator>();
+builder.Services.AddValidatorsFromAssemblyContaining<GetAllStudentsQueryValidator>();
 builder.Services.AddValidatorsFromAssemblyContaining<GetAllStudentsQueryValidator>();
 
 var app = builder.Build();
