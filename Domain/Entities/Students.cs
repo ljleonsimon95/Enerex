@@ -5,7 +5,7 @@ namespace Domain.Entities;
 /// <summary>
 /// Student entity.
 /// </summary>
-public class Student : IEquatable<Student>
+public class Student
 {
     /// <summary>
     /// Gets or sets the identifier.
@@ -36,16 +36,5 @@ public class Student : IEquatable<Student>
     /// Gets or sets the academic year.
     /// </summary>
     public int AcademicYear { get; set; }
-
-    public bool Equals(Student? other)
-    {
-        if (other is null) return false;
-        if (ReferenceEquals(this, other)) return true;
-
-        return Name == other.Name &&
-               Gender == other.Gender &&
-               Age == other.Age &&
-               Education == other.Education &&
-               AcademicYear == other.AcademicYear;
-    }
+    
 }
