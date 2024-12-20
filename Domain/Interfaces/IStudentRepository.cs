@@ -37,5 +37,4 @@ public interface IStudentRepository
     /// </summary>
     /// <param name="id">The student identifier.</param>
     Task DeleteAsync(Guid id);
-    
 }

@@ -36,5 +36,4 @@ public class Student
     /// Gets or sets the academic year.
     /// </summary>
     public int AcademicYear { get; set; }
-    
 }

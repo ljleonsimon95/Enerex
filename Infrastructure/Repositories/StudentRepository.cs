@@ -1,4 +1,3 @@
-using System.Data;
 using Application.Features.Students.Exceptions;
 using Domain.Entities;
 using Domain.Interfaces;
@@ -7,18 +6,34 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Repositories;
 
+/// <summary>
+/// Repository for students
+/// </summary>
 public class StudentRepository(ApplicationDbContext context) : IStudentRepository
 {
+    /// <summary>
+    /// Gets all students
+    /// </summary>
+    /// <returns>All students</returns>
     public async Task<IEnumerable<Student>> GetAllAsync()
     {
         return await Task.FromResult(context.Students);
     }
 
+    /// <summary>
+    /// Gets a student by its id
+    /// </summary>
+    /// <param name="id">Id of the student</param>
+    /// <returns>The student if found, otherwise null</returns>
     public async Task<Student?> GetByIdAsync(Guid id)
     {
         return await Task.FromResult(context.Students.FirstOrDefault(s => s.Id == id));
     }
 
+    /// <summary>
+    /// Adds a student
+    /// </summary>
+    /// <param name="student">Student to add</param>
     public async Task AddAsync(Student student)
     {
         var exists = await context.Students.AnyAsync(s =>
@@ -38,6 +53,10 @@ public class StudentRepository(ApplicationDbContext context) : IStudentRepositor
         await Task.CompletedTask;
     }
 
+    /// <summary>
+    /// Updates a student
+    /// </summary>
+    /// <param name="student">Student to update</param>
     public async Task UpdateAsync(Student student)
     {
         var existingStudent = context.Students.FirstOrDefault(s => s.Id == student.Id);
@@ -67,6 +86,10 @@ public class StudentRepository(ApplicationDbContext context) : IStudentRepositor
         await Task.CompletedTask;
     }
 
+    /// <summary>
+    /// Deletes a student
+    /// </summary>
+    /// <param name="id">Id of the student to delete</param>
     public async Task DeleteAsync(Guid id)
     {
         var student = context.Students.FirstOrDefault(s => s.Id == id);

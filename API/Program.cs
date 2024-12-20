@@ -1,4 +1,4 @@
-using Application.Features.Students.Commands.AddStudent;
+using Application.Features.Students.Commands.Commons;
 using Application.Features.Students.Queries.Commons;
 using Domain.Interfaces;
 using FluentValidation;
@@ -14,34 +14,38 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseInMemoryDatabase("InMemoryDb"));
 builder.Services.AddScoped<IStudentRepository, StudentRepository>();
 
-
-// Configurar Swagger
+// Controllers, routing and Swagger
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// Registro de FluentValidation
+// Fluent Validation
 builder.Services.AddFluentValidationAutoValidation();
 builder.Services.AddFluentValidationClientsideAdapters();
-builder.Services.AddValidatorsFromAssemblyContaining<AddStudentCommandValidator>();
+builder.Services.AddValidatorsFromAssemblyContaining<StudentCommandValidator>();
 builder.Services.AddValidatorsFromAssemblyContaining<GetAllStudentsQueryValidator>();
 
 var app = builder.Build();
 
+// Seed data
 using (var scope = app.Services.CreateScope())
 {
     var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
     await dbContext.SeedDataAsync();
 }
 
-// Usar Swagger en desarrollo
+// Swagger
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
 
+// Authorization
 app.UseAuthorization();
+
+// Routing
 app.MapControllers();
 
+// Start app
 app.Run();
