@@ -1,8 +1,3 @@
 namespace Application.Features.Students.Exceptions;
 
-public class DuplicateStudentException : Exception
-{
-    public DuplicateStudentException(string message) : base(message)
-    {
-    }
-}
+public class DuplicateStudentException(string message) : Exception(message);
